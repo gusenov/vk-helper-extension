@@ -1,0 +1,13 @@
+{
+  "description": "Enhances the https://vk.com experience.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusenov/vk-helper-extension.git"
+  },
+  "homepage": "https://github.com/gusenov/vk-helper-extension#readme",
+  "license": "MIT",
+  "dependencies": {
+    "seq-exec": "0.0.1",
+    "utils4js": "^0.1.7"
+  }
+}
