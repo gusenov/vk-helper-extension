@@ -52,17 +52,17 @@ var VK = (function () {
         
         this.wall_get(owner_id, domain, offset, 100, filter, extended, fields, function (firstData) {
             var lastData = [],
-                numberOfPosts = firstData.response[0],
                 i;
-
+            
             for (i = 1; i < firstData.response.length; i += 1) {
                 allPosts.push(firstData.response[i]);
             }
+            offset += firstData.response.length - 1;
 
             SeqExec.loop(function loopBody(cont) {
                 this.wall_get(owner_id, domain, offset, 100, filter, extended, fields, function (data) {
                     lastData = data.response;
-                    for (i = 1; i < lastData.length; i += 1) {
+                    for (i = 1; i < lastData.length && allPosts.length < firstData.response[0]; i += 1) {
                         allPosts.push(lastData[i]);
                     }
                     offset += lastData.length - 1;
@@ -70,7 +70,7 @@ var VK = (function () {
                 });
 
             }.bind(this), function stopCondition() {
-                if (lastData.length === 1) {
+                if (lastData.length === 1 || allPosts.length === firstData.response[0]) {
                     onCompleted(allPosts);
                     return true;
                 } else {
