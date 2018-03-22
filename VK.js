@@ -26,6 +26,7 @@ var VK = (function () {
     VK.prototype.wall_get = function (owner_id, domain, offset, count, filter, extended, fields, success) {
         var data = {};
         
+        data.version = "5.73";
         data.access_token = this.access_token;
         
         if (typeof owner_id !== 'undefined' && owner_id !== null) { data.owner_id = owner_id; }
@@ -53,6 +54,11 @@ var VK = (function () {
         this.wall_get(owner_id, domain, offset, 100, filter, extended, fields, function (firstData) {
             var lastData = [],
                 i;
+            
+            if (firstData.error) {
+                alert(firstData.error.error_msg);
+                return;
+            }
             
             for (i = 1; i < firstData.response.length; i += 1) {
                 allPosts.push(firstData.response[i]);
