@@ -19,17 +19,29 @@
 (function () {
     'use strict';
     
-    var serviceToken = "Service Token",
+    var vk;
+    chrome.storage.sync.get(['token'], function (result) {
+        var serviceToken = result.token;
         vk = new VK(serviceToken);
+    });
 
     function getOwnerId() {
         var public_followers = $('#public_followers').find('.module_header').attr('href'),
             group_followers = $('#group_followers').find('.module_header').attr('href'),
-            followers_url = typeof public_followers !== 'undefined' ? public_followers : group_followers,
+            friends = $('#profile_friends').find('.module_header').attr('href'),
+            url = '',
             owner_id; // идентификатор пользователя или сообщества
+        
+        if (typeof public_followers !== 'undefined') {
+            url = public_followers;
+        } else if (typeof group_followers !== 'undefined') {
+            url = group_followers;
+        } else {
+            url = friends;
+        }
 
         // идентификатор сообщества в параметре owner_id необходимо указывать со знаком "-"
-        owner_id = '-' + Utils.RegEx.extractStringUsingJavaScriptRegEx(followers_url, /\d+/);
+        owner_id = '-' + Utils.RegEx.extractStringUsingJavaScriptRegEx(url, /\d+/);
         
         return owner_id;
     }

@@ -26,6 +26,7 @@
         "tabs",
         "contextMenus",
         "webRequest",
+        "storage",
         "https://*.vk.com/*"
     ],
     
@@ -59,5 +60,7 @@
             "vk-com.js"
         ],
         "run_at": "document_start"
-    }]
+    }],
+    
+    "options_page": "options.html"
 }
