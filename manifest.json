@@ -1,66 +1,57 @@
 {
-    "manifest_version": 2,
-    
-    "name": "VK Helper",
-    
-    "version": "0.0.0.1",
-    
-    "description": "Enhances the https://vk.com experience.",
-    
-    "icons": {
-        "16": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/16/Vk-icon.png",
-        "24": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/24/Vk-icon.png",
-        "32": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/32/Vk-icon.png",
-        "48": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/48/Vk-icon.png",
-        "64": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/64/Vk-icon.png",
-        "72": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/72/Vk-icon.png",
-        "96": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/96/Vk-icon.png",
-        "128": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png"
+  "manifest_version": 2,
+  "name": "VK Helper",
+  "version": "0.0.0.1",
+  "description": "Enhances the https://vk.com experience.",
+  "icons": {
+    "16": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/16/Vk-icon.png",
+    "24": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/24/Vk-icon.png",
+    "32": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/32/Vk-icon.png",
+    "48": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/48/Vk-icon.png",
+    "64": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/64/Vk-icon.png",
+    "72": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/72/Vk-icon.png",
+    "96": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/96/Vk-icon.png",
+    "128": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png"
+  },
+  "author": "Abbas Gussenov",
+  "short_name": "VKHelper",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "webRequest",
+    "storage",
+    "https://*.vk.com/*"
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/16/Vk-icon.png",
+      "24": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/24/Vk-icon.png",
+      "32": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/32/Vk-icon.png",
+      "48": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/48/Vk-icon.png",
+      "64": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/64/Vk-icon.png",
+      "72": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/72/Vk-icon.png",
+      "96": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/96/Vk-icon.png",
+      "128": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png"
     },
-    
-    "author": "Abbas Gussenov",
-    
-    "short_name": "VKHelper",
-    
-    "permissions": [
-        "tabs",
-        "contextMenus",
-        "webRequest",
-        "storage",
-        "https://*.vk.com/*"
-    ],
-    
-    "background": {
-        "page": "background.html"
-    },
-    
-    "page_action": {
-        "default_icon": {
-            "16": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/16/Vk-icon.png",
-            "24": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/24/Vk-icon.png",
-            "32": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/32/Vk-icon.png",
-            "48": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/48/Vk-icon.png",
-            "64": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/64/Vk-icon.png",
-            "72": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/72/Vk-icon.png",
-            "96": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/96/Vk-icon.png",
-            "128": "/images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png"
-        },
-        "default_title": "VK Helper"
-    },
-    
-    "content_scripts": [{
-        "matches": [
-            "https://vk.com/*"
-        ],
-        "js": [
-            "jquery-3.2.1.js",
-            "node_modules/utils4js/utils.js",
-            "node_modules/seq-exec/seq-exec.js",
-            "VK.js",
-            "vk-com.js"
-        ],
-        "run_at": "document_start"
-    }],
-    
-    "options_page": "options.html"
+    "default_title": "VK Helper"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://vk.com/*"
+      ],
+      "js": [
+        "jquery-3.2.1.js",
+        "node_modules/utils4js/utils.js",
+        "node_modules/seq-exec/seq-exec.js",
+        "VK.js",
+        "vk-com.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "options_page": "options.html"
 }
