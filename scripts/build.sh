@@ -1,8 +1,15 @@
+#!/bin/bash
+
+#set -x  # echo on
+
+# Usage:
+#  $ "./scripts/build.sh"
+
 version=$(jq --raw-output '.version' manifest.json)
-newVersion=$(./increment_version.sh $version)
+newVersion=$(./scripts/increment_version.sh $version)
 jq ".version = \"$newVersion\"" manifest.json | sponge manifest.json
 
-release="VKHelper-$newVersion.zip"
+release="./build/VKHelper-$newVersion.zip"
 
 if [ ! -f $release ]; then
     :
@@ -21,13 +28,13 @@ zip --quiet -r $release \
                 "images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png" \
                 "node_modules/utils4js/utils.js" \
                 "node_modules/seq-exec/seq-exec.js" \
-                "background.html" \
-                "background.js" \
-                "jquery-3.2.1.js" \
+                "html/background.html" \
+                "js/background.js" \
+                "js/jquery-3.2.1.js" \
                 "manifest.json" \
-                "options.html" \
-                "options.js" \
-                "vk-com.js" \
-                "VK.js"
+                "html/options.html" \
+                "js/options.js" \
+                "js/vk-com.js" \
+                "js/VK.js"
 
 echo $release

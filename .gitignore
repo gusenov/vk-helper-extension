@@ -60,5 +60,6 @@ typings/
 
 
 
-VKHelper-*.zip
+build/VKHelper-*.zip
 service-token.txt
+
