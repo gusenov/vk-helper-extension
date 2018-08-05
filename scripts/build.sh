@@ -18,14 +18,16 @@ else
 fi
 
 zip --quiet -r $release \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/16/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/24/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/32/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/48/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/64/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/72/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/96/Vk-icon.png" \
-                "images/icons.iconarchive.com/icons/limav/flat-gradient-social/128/Vk-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/16/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/24/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/32/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/48/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/64/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/72/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/96/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/128/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/256/Social-Networks-Vkontakte-icon.png" \
+		"images/icons.iconarchive.com/icons/icons8/windows-8/512/Social-Networks-Vkontakte-icon.png" \
                 "node_modules/utils4js/utils.js" \
                 "node_modules/seq-exec/seq-exec.js" \
                 "html/background.html" \

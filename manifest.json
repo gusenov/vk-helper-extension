@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Another VK Helper",
-  "version": "0.0.0.2",
+  "version": "0.0.0.3",
   "description": "Enhances the https://vk.com experience.",
   "icons": {
     "16": "/images/icons.iconarchive.com/icons/icons8/windows-8/16/Social-Networks-Vkontakte-icon.png",
