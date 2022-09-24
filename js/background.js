@@ -29,7 +29,7 @@
 
     Utils.Chromium.createContextMenuItemThatOpensNewPage(
       "OPEN_FEEDBACK_PAGE",
-      "Отзывы и предложения",
+      "Feedback",
       ["page_action"],
       true,
       "/html/feedback.html"

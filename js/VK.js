@@ -26,7 +26,7 @@ var VK = (function () {
     VK.prototype.wall_get = function (owner_id, domain, offset, count, filter, extended, fields, success) {
         var data = {};
         
-        data.version = "5.73";
+        data.v = "5.131";
         data.access_token = this.access_token;
         
         if (typeof owner_id !== 'undefined' && owner_id !== null) { data.owner_id = owner_id; }
@@ -36,7 +36,7 @@ var VK = (function () {
         if (typeof filter !== 'undefined' && filter !== null) { data.filter = filter; }
         if (typeof extended !== 'undefined' && extended !== null) { data.extended = extended; }
         if (typeof fields !== 'undefined' && fields !== null) { data.fields = fields; }
-        
+       
         $.ajax({
             'url' : 'https://api.vk.com/method/wall.get',
             'type' : 'GET',
@@ -60,15 +60,15 @@ var VK = (function () {
                 return;
             }
             
-            for (i = 1; i < firstData.response.length; i += 1) {
-                allPosts.push(firstData.response[i]);
+            for (i = 1; i < firstData.response.items.length; i += 1) {
+                allPosts.push(firstData.response.items[i]);
             }
-            offset += firstData.response.length - 1;
+            offset += firstData.response.items.length - 1;
 
             SeqExec.loop(function loopBody(cont) {
                 this.wall_get(owner_id, domain, offset, 100, filter, extended, fields, function (data) {
-                    lastData = data.response;
-                    for (i = 1; i < lastData.length && allPosts.length < firstData.response[0]; i += 1) {
+                    lastData = data.response.items;
+                    for (i = 1; i < lastData.length && allPosts.length < firstData.response.items[0]; i += 1) {
                         allPosts.push(lastData[i]);
                     }
                     offset += lastData.length - 1;
@@ -76,7 +76,7 @@ var VK = (function () {
                 });
 
             }.bind(this), function stopCondition() {
-                if (lastData.length === 1 || allPosts.length === firstData.response[0]) {
+                if (lastData.length === 1 || allPosts.length === firstData.response.items[0]) {
                     onCompleted(allPosts);
                     return true;
                 } else {
